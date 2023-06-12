@@ -1,0 +1,17 @@
+name: dge
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - black
+  - cookiecutter
+  - jupyterlab
+  - numpy
+  - pip
+  - pytorch
+  - scikit-learn
+  - sphinx-autoapi
+  - sphinx_rtd_theme
+  - pip:
+    - https://github.com/revitron/revitron-sphinx-theme/archive/master.zip

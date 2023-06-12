@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=DeepGameEngine
+set SPHINXPROJ=dge
 
 if "%1" == "" goto help
 

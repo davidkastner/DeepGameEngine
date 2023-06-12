@@ -1,7 +1,7 @@
 DeepGameEngine
 ==============================
 [//]: # (Badges)
-[![GitHub Actions Build Status](https://github.com/REPLACE_WITH_OWNER_ACCOUNT/DeepGameEngine/workflows/CI/badge.svg)](https://github.com/REPLACE_WITH_OWNER_ACCOUNT/DeepGameEngine/actions?query=workflow%3ACI)
+[![GitHub Actions Build Status](https://github.com/REPLACE_WITH_OWNER_ACCOUNT/dge/workflows/CI/badge.svg)](https://github.com/REPLACE_WITH_OWNER_ACCOUNT/dge/actions?query=workflow%3ACI)
 [![codecov](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/DeepGameEngine/branch/main/graph/badge.svg)](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/DeepGameEngine/branch/main)
 
 

@@ -54,7 +54,7 @@ jobs:
         # conda setup requires this special shell
         shell: bash -l {0}
         run: |
-          pytest -v --cov=DeepGameEngine --cov-report=xml --color=yes DeepGameEngine/tests/
+          pytest -v --cov=dge --cov-report=xml --color=yes dge/tests/
 
       - name: CodeCov
         uses: codecov/codecov-action@v1

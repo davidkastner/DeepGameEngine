@@ -17,7 +17,7 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 
-import DeepGameEngine
+import dge
 
 
 # -- Project information -----------------------------------------------------
@@ -117,7 +117,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'DeepGameEnginedoc'
+htmlhelp_basename = 'dgedoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -144,8 +144,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'DeepGameEngine.tex', 'DeepGameEngine Documentation',
-     'DeepGameEngine', 'manual'),
+    (master_doc, 'dge.tex', 'DeepGameEngine Documentation',
+     'dge', 'manual'),
 ]
 
 
@@ -154,7 +154,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'DeepGameEngine', 'DeepGameEngine Documentation',
+    (master_doc, 'dge', 'DeepGameEngine Documentation',
      [author], 1)
 ]
 
@@ -165,8 +165,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'DeepGameEngine', 'DeepGameEngine Documentation',
-     author, 'DeepGameEngine', 'Artificial intelligence for simulated games.',
+    (master_doc, 'dge', 'DeepGameEngine Documentation',
+     author, 'dge', 'Artificial intelligence for simulated games.',
      'Miscellaneous'),
 ]
 

@@ -1,5 +1,5 @@
 """
-Unit and regression test for the DeepGameEngine package.
+Unit and regression test for the dge package.
 """
 
 # Import package, test suite, and other packages as needed
@@ -7,9 +7,9 @@ import sys
 
 import pytest
 
-import DeepGameEngine
+import dge
 
 
-def test_DeepGameEngine_imported():
+def test_dge_imported():
     """Sample test, will always pass so long as import statement worked."""
-    assert "DeepGameEngine" in sys.modules
+    assert "dge" in sys.modules

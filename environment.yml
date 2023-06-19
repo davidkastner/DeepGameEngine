@@ -6,12 +6,19 @@ dependencies:
   - python=3.8
   - black
   - cookiecutter
-  - jupyterlab
+  - grpcio
   - numpy
   - pip
   - pytorch
   - scikit-learn
   - sphinx-autoapi
   - sphinx_rtd_theme
+  - stable-baselines3
+  - tensorboard
+  - tensorflow
   - pip:
+    - gym==0.21.0
+    - gym-retro
+    - google-auth==1.35.0
+    - google-auth-oauthlib==0.4.6
     - https://github.com/revitron/revitron-sphinx-theme/archive/master.zip

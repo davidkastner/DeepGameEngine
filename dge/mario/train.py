@@ -8,6 +8,7 @@ from stable_baselines3.common.utils import set_random_seed
 from stable_baselines3.common.callbacks import BaseCallback
 from stable_baselines3.common.vec_env import VecMonitor
 from stable_baselines3.common.atari_wrappers import MaxAndSkipEnv
+import torch
 import os
 import retro
 
@@ -83,6 +84,9 @@ def make_env(env_id, rank, seed=0):
 
 
 def train():
+    """
+    Open tensorboard with `tensorboard --logdir tensorboard`
+    """
     # Create log dir
     log_dir = "tmp/"
     os.makedirs(log_dir, exist_ok=True)
@@ -93,16 +97,18 @@ def train():
     # Create the vectorized environment
     env = VecMonitor(SubprocVecEnv([make_env(env_id, i) for i in range(num_cpu)]), log_dir)
 
-    model = PPO('CnnPolicy', env, verbose=1, tensorboard_log="./tensorboard/", learning_rate=0.00003)
-    #model = PPO.load("ppo_super_mario_bros", env=env, tensorboard_log="./tensorboard/")
+    # Directly load the model
+    model_path = os.path.join(log_dir, "best_model.zip")
+    if os.path.isfile(model_path):
+        model = PPO.load(model_path, env=env, tensorboard_log="./tensorboard/")
+    else:
+        model = PPO('CnnPolicy', env, verbose=1, tensorboard_log="./tensorboard/", learning_rate=0.00003)
 
     print("Start learning")
     callback = SaveOnBestTrainingRewardCallback(check_freq=1000, log_dir=log_dir)
-    model.learn(total_timesteps=10000000, callback=callback, tb_log_name="PPO-00003")
-    model.save(env_id)
+    model.learn(total_timesteps=2000000, callback=callback, tb_log_name="PPO-00003")
+    model.save(f"{env_id}_v2")
     print("Stop learning")
-
-    # Open tensorboard with `tensorboard --logdir tensorboard`
 
 if __name__ == '__main__':
     train()

@@ -14,13 +14,18 @@ import retro
 
 class SaveOnBestTrainingRewardCallback(BaseCallback):
     """
-    Callback for saving a model (the check is done every ``check_freq`` steps)
-    based on the training reward (in practice, we recommend using ``EvalCallback``).
+    Callback for saving a model (the check is done every ``check_freq`` steps).
+    Based on the training reward (in practice, we recommend using ``EvalCallback``).
 
-    :param check_freq:
-    :param log_dir: Path to the folder where the model will be saved.
-      It must contains the file created by the ``Monitor`` wrapper.
-    :param verbose: Verbosity level: 0 for no output, 1 for info messages, 2 for debug messages
+    Parameters
+    ----------
+    check_freq : bool
+        Whether to check the frequency
+    log_dir : str 
+        Path to the folder where the model will be saved, must contains the file created by the ``Monitor`` wrapper.
+    verbose : int
+        Verbosity level: 0 for no output, 1 for info messages, 2 for debug messages
+
     """
     def __init__(self, check_freq: int, log_dir: str, verbose: int = 1):
         super(SaveOnBestTrainingRewardCallback, self).__init__(verbose)
@@ -85,6 +90,10 @@ def make_env(env_id, rank, seed=0):
 
 def train():
     """
+    Function for training on the model.
+
+    Notes
+    -----
     Open tensorboard with `tensorboard --logdir tensorboard`
     """
     # Create log dir
@@ -92,7 +101,7 @@ def train():
     os.makedirs(log_dir, exist_ok=True)
 
     env_id = "SuperMarioBros-Nes"
-    num_cpu = 4  # Number of processes
+    num_cpu = 12  # Number of simultaneous traning instances
 
     # Create the vectorized environment
     env = VecMonitor(SubprocVecEnv([make_env(env_id, i) for i in range(num_cpu)]), log_dir)
@@ -104,11 +113,12 @@ def train():
     else:
         model = PPO('CnnPolicy', env, verbose=1, tensorboard_log="./tensorboard/", learning_rate=0.00003)
 
-    print("Start learning")
+    print("<<<<< Start learning >>>>>")
     callback = SaveOnBestTrainingRewardCallback(check_freq=1000, log_dir=log_dir)
     model.learn(total_timesteps=2000000, callback=callback, tb_log_name="PPO-00003")
-    model.save(f"{env_id}_v2")
-    print("Stop learning")
+    model.save(f"{env_id}")
+    print("<<<<< Stop learning >>>>>")
+
 
 if __name__ == '__main__':
     train()

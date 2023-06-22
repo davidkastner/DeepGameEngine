@@ -6,7 +6,6 @@ dependencies:
   - python=3.8
   - black
   - cookiecutter
-  - grpcio
   - numpy
   - pip
   - pytorch
@@ -16,9 +15,13 @@ dependencies:
   - stable-baselines3
   - tensorboard
   - tensorflow
+  - boost # ViZDoom
+  - cmake # ViZDoom
+  - sdl2 # ViZDoom
   - pip:
     - gym==0.21.0
     - gym-retro
-    - google-auth==1.35.0
-    - google-auth-oauthlib==0.4.6
+    - google-auth==1.35.0 # gym-retro error
+    - google-auth-oauthlib==0.4.6 # gym-retro error
+    - grpcio # gym-retro error
     - https://github.com/revitron/revitron-sphinx-theme/archive/master.zip

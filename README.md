@@ -23,7 +23,7 @@ DeepGameEngine
 
 
 ## 1. Overview
-DeepGameEgine (dge) is an artificial intelligence for playing simulated games.
+DeepGameEgine (dge) is an artificial intelligence toolkit for playing simulated games.
 
 ## 2. Installation
 Install the package by running the follow commands inside the repository.
